@@ -13,6 +13,7 @@ export function loginUser(user) {
         })
             .then(resp => resp.json())
             .then(({ user }) => {
+                console.log({user})
                 dispatch({ type: LOGIN, payload: user.data.attributes })
             })
     }

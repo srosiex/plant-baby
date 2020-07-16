@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 
 
 function NavBar(props) {
-
+console.log(props)
     const handleClick = () => {
         const { logoutUser, isLoggedIn, user } = props
         if (isLoggedIn) {
@@ -20,16 +20,16 @@ function NavBar(props) {
                     <Link to="/login" onClick={(e) => handleClick(e)} className="logout">
                         Logout
                     </Link>
-                </li> : null}
+                </li> : "Login"}
         </div>
     )
 }
 
-const mapStateToProps = ({ usersReducer }) => {
-    const { isLoggedIn, user } = usersReducer
+const mapStateToProps = (state) => {
+    // const { isLoggedIn, user } = usersReducer
     return {
-        isLoggedIn: isLoggedIn,
-        user: user
+        isLoggedIn: state.isLoggedIn,
+        user: state.user
     }
 }
 

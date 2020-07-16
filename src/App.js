@@ -64,14 +64,18 @@
 import React from 'react';
 import SessionStatus from "./components/SessionStatus"
 import Routes from './components/Routes';
-
+import { BrowserRouter as Router } from 'react-router-dom';
+import UsersContainer from './containers/UsersContainer'
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <SessionStatus />
+      {/* <SessionStatus /> */}
+      <UsersContainer />
       <Routes />
     </div>
+    </Router>
   );
 }
 

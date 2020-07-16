@@ -1,30 +1,29 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { sessionStatus } from "../actions/sessionStatus"
+import NavBar from "../components/NavBar"
 
-class SessionStatus extends Component {
+class UserSessionStatus extends Component {
 
     componentDidMount() {
         this.props.sessionStatus()
     }
 
-    render() {
+    render() { 
         return (
             <div>
-                Welcome!
+                <NavBar isLoggedIn={this.props.isLoggedIn} user={this.props.user} />
             </div>
         )
     }
-
 }
 
 const mapStateToProps = (state) => {
-    console.log('state:',state)
-    // const {isLoggedIn, user} = state.usersReducer
+    // const {isLoggedIn, user} = usersReducer
     return {
         isLoggedIn: state.isLoggedIn,
         user: state.user
     }
 }
 
-export default connect(mapStateToProps, { sessionStatus })(SessionStatus)
+export default connect(mapStateToProps, { sessionStatus })(UserSessionStatus)
