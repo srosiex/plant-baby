@@ -1,24 +1,76 @@
+// import React from 'react';
+// import './App.css';
+// import Plant from './Plant'
+
+// class App extends React.Component {
+//   state = {
+//     plants: [],
+//     plantUrl: '',
+//     plant: []
+//   }
+
+//   async componentDidMount(){
+//     const apiKey = "QlpFSHNxR0JMcjM3ZDd0THNJaTZEQT09";
+//     try{
+//       const res = await fetch("https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants?page_size>=5", {
+//             method: "GET",
+//             headers: {
+//               Accept: "application/json",
+//               "Content-Type": "application/json",
+//               Authorization: "Bearer " + apiKey
+//             }
+//           })
+//           const data = await res.json();
+//           this.setState({
+//             plants: data
+//           })
+//           const fullPlantList = [];
+//           for(let p of data){
+//             const plantRes = await fetch(`https://cors-anywhere.herokuapp.com/${p.link}`,{
+//               method: "GET",
+//               headers: {
+//                 Accept: "application/json",
+//                 "Content-Type": "application/json",
+//                 Authorization: "Bearer " + apiKey
+//               }
+//             });
+//             const plantData = await plantRes.json()
+//             fullPlantList.push(plantData)
+//             this.setState({
+//               plant:fullPlantList
+//             })
+//           }
+//     }catch(e){
+//       console.log(e)
+//     }
+//   }
+
+//   renderPlants = () => {
+//     return this.state.plant.map(p=>{
+//       return <Plant key={p.id} plant={p} />
+//     })
+//   }
+
+//   render(){
+//   return (
+//     <div>
+//       <h1>Hello World</h1>
+//       {this.renderPlants()}
+//     </div>
+//   );
+// }}
+
+// export default App;
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SessionStatus from "./components/SessionStatus"
+import Routes from './components/Routes';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SessionStatus />
+      <Routes />
     </div>
   );
 }
