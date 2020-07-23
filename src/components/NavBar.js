@@ -20,7 +20,8 @@ console.log(props)
                     <Link to="/login" onClick={(e) => handleClick(e)} className="logout">
                         Logout
                     </Link>
-                </li> : "Login"}
+                </li> : 
+                <li><Link to="/login" >Login</Link></li>}
         </div>
     )
 }

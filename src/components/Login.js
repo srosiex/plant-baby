@@ -29,7 +29,7 @@ class Login extends Component {
             email: '',
             password: ''
         })
-        this.props.history.push("/recipes")
+        this.props.history.push("/home")
     }
 
 
