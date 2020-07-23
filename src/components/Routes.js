@@ -10,8 +10,9 @@ import Home from './Home'
 const Routes = () => {
 
     return (
+        <>
+        <NavBar />
         <Router>
-            <NavBar />
             <div>
                 <Switch>
                     <Route exact path="/home" render={(routerProps)=>
@@ -28,7 +29,7 @@ const Routes = () => {
                 </Switch>
             </div>
         </Router>
-
+                        </>
     )
 }
 

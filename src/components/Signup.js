@@ -28,7 +28,7 @@ class Signup extends Component {
         e.preventDefault()
         this.props.signupUser(this.state)
             .then(() => {
-                this.props.history.push("/recipes")
+                this.props.history.push("/home")
         })
         this.setState({
             username: '',

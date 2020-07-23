@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { logoutUser } from "../actions/logoutUser"
 import { connect } from "react-redux"
 
+//test@test.com pword test
 
 function NavBar(props) {
 console.log(props)
@@ -13,14 +14,26 @@ console.log(props)
         }
     }
 
+    const loggedInLinks = () => {
+        return <ul>
+            <li>
+                <Link to="/home" onClick={(e) => handleClick(e)} className="home">
+                    Home
+                </Link>
+            </li>
+            <li>
+            <Link to="/login" onClick={(e) => handleClick(e)} className="logout">
+                    Logout
+                </Link>
+ 
+            </li>
+        </ul>
+    }
+
     return (
         <div className="nav_bar">
             {props.isLoggedIn ?
-                <li>
-                    <Link to="/login" onClick={(e) => handleClick(e)} className="logout">
-                        Logout
-                    </Link>
-                </li> : 
+loggedInLinks() : 
                 <li><Link to="/login" >Login</Link></li>}
         </div>
     )
