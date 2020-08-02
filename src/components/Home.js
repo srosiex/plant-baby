@@ -2,14 +2,18 @@ import React, { Component } from 'react'
 import Plant from './Plant'
 
 export class Home extends Component {
-    constructor(props){
-        super(props)
+    state = {
+        plants: {}
     }
     componentDidMount(){
-        fetch('https://localhost:3001/api/plants')
-        .then(r => console.log(r.json()))
+        fetch('http://localhost:3001/plants')
+        .then(res => res.json())
+        .then(data => this.setState({
+            plants: data
+        }))
     }
     render(){
+        console.log(this.state.plants)
         return (
             <div>
                 Home
